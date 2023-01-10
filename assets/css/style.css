@@ -1,0 +1,25 @@
+.hour{
+  border-top: 1px solid rgb(185, 185, 185);
+}
+
+.saveBtn{
+  background-color: rgb(45, 175, 175);
+  border-bottom: 1px solid white;
+}
+
+.past .description{
+  background-color: lightgrey;
+}
+
+.present .description{
+  background-color: rgb(247, 81, 81);
+}
+
+.future .description{
+  background-color: rgb(112, 189, 112);
+}
+
+.description{
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
