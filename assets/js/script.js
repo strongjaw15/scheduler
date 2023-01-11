@@ -37,15 +37,11 @@ $(".calendar").append(
     $("<button>").addClass(`btn saveBtn col-2 col-md-1`).attr("aria-label", "save").append(
       $("<i>").addClass("fas fa-save").attr("aria-hidden", "true"))))}
       
-//What do I need to do when populating the text fields with saved data?
-  //
-
 // This gets the saved text for the loop.
 function getText(i){
-  let textValue = saveData.find(function(value){return value.hour === i});
-  return textValue
+   const foundObj = saveData.find( (obj) => obj.hour == i)
+   return foundObj?.value || "";
 }
-console.log(textValue)
 
 // This tells the for loop whether to say AM or PM.
 function amPm(i){
@@ -73,14 +69,6 @@ function isItTime(i){
   }
 }
 
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-
 // This saves the text input to local storage
 // $(".btn").click(function(){
 //   chosenHour = ($(this).prev().data("id"));
@@ -91,6 +79,10 @@ function isItTime(i){
 //   saveData.push(newOb)
 //   localStorage.setItem("saveData", JSON.stringify(saveData))
 // })
+
+// for an object with the hour that matches the chosen hour
+// then use .splice to wipe it out before  writing
+
 $(".btn").click(function(){
   chosenHour = ($(this).prev().data("id"));
   chosenHourValue = ($(this).prev().val());
